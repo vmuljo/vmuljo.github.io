@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Projects</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Victor Muljo's latest projects relating to engineering">
+  	<meta name="keywords" content="project, engineering, iot, arduino, RaspberryPi">
+  	<meta name="author" content="Victor Muljo">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+	<style>
+		#intro{width: 700px;}
+		iframe{display: block;}
+		div iframe{
+			margin: 10px auto;
+		}
+		#container p{
+			width: 70%;
+			margin: 10px auto;
+			text-align: center;
+		}
+		#container a{display: block; text-decoration: underline; width: 70%; text-align: center; margin: 10px auto; color: #283A67;}
+		h2{margin-top: 20px;}
+	</style>
+</head>
+<body>
+<div id="navbar">
+	<div class="logoclick">
+	<img src="img/logo.png" alt="Logo" id='logo'>
+	</div>
+	<div class="slidebar">
+		<a class="nav" href="index.html">HOME</a>
+		<a class="nav" href="projects.html" id="current">PROJECTS</a>
+		<a class="nav" href="about.html">ABOUT</a>
+		<a class="nav" href="contact.html">CONTACT</a>
+	</div>
+	<div class="logoclick"><img src="img/sidearrow.png" alt="SliderButton" id='sidearrow'></div>
+</div>
+
+<div id="container">
+	<div id="intro">
+		<h1 id="hello">Projects.</h1>
+	</div>
+	<!-- <hr -->
+	<div id="minduno">
+		<h2>MindUNO - An IoT System to Collect and Visualize Brianwave Data</h2>
+		<p>The purpose of our IoT system, “MindUno”, is to collect raw electroencephalography brainwave data, locally parse and process it on an ArduinoUno, and communicate that data to a remote node (our laptop) where we can visualize the data in a meaningful, human-understandable way. We use a RaspberryPi to transmit the data to our laptop/virtual machine over MQTT.</p>
+		<a href="https://github.com/tsehon-vmuljo/eefinalproj" target="_blank">Check out our GitHub page!</a>
+		<iframe src="https://drive.google.com/file/d/1gvVWAInyaOYTnaAPWKdwba9XMVyLUbCn/preview" width="640" height="480" allow="autoplay"></iframe><!--May not be able to view since links are set to only allow USC people to view -->
+	</div>
+	<!-- <hr> -->
+	<div id="tempmonitor">
+		<h2>Temperature Monitor - An Embedded System to Detect Changes in Temperature</h2>
+		<p>The purpose of my embeeded system is to sense the environmental temperature and alert the user with LED lights and noise when the temperature surpasses a set threshold. The threshold can be set by the user using a rotary encoder that has been coded and processed on an ArdunoUno to set proper temperature ranges. The user may also set a certain frequency as their noise of choice by clicking a button that allows the rotary encoder to switch from setting the temperature threshold to setting the frequency.</p>
+		<iframe src="https://drive.google.com/file/d/150ROXavKP9c3RD2Z0hLnGTGcY7sGnhzB/preview" width="640" height="480" allow="autoplay"></iframe> <!--May not be able to view since links are set to only allow USC people to view -->
+	</div>
+</div>
+<div id="footer">
+	<p>&copy; 2022 by Victor Muljo</p>
+	<div id="socialsdiv">
+		<a class="socials" href="https://www.instagram.com/victormuljo/" target="_blank"><img src="img/instagram.png" alt="instagram"></a>
+		<a class="socials" href="https://www.linkedin.com/in/victormuljo/" target="_blank"><img src="img/linkedin.png" alt="linkedin"></a>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+	$('.logoclick').click(function(){
+		$('.nav').toggle("slide:right");
+	});
+
+</script>
+
+
+</body>
+</html>
