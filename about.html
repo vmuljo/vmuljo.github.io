@@ -44,14 +44,7 @@
 	<img src="img/me.jpg" id="selfportrait" alt="Image of Victor Muljo">
 	<p>I've been interested in engineering ever since I was in high school, where I first got to tinker with circuits. Ever since then, I knew Electrical and Computer Engineering is what I wanted to do. Currently, I'm searching for engineering internships to help me gain practical experience and hope to learn from various senior engineers to broaden my skillset.</p>
 	<!-- <div class="clearfloat"></div> -->
-	<div id="spotify">
-		<p>Personal Song of the Week:</p>
-		<div class="clearfloat"></div>
-		<img src="img/noimage.jpg" alt="No image" id="songimage">
-		<p>Title: <span id="songtitle"></span></p>
-		<p>By <span id="artist">N/A</span></p>
-	</div>
-
+	<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6woO7vBHGsSa8KRmNz1kDt?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 	<div class="clearfloat"></div>
 </div>
 
@@ -74,66 +67,6 @@
 		// $('#sidearrow').toggle('transform: rotate(180deg)');
 	});
 	
-	var accessToken;
-
-	$.ajax({
-		url: "spotify_token.php",
-		dataType: "json",
-		success: function(response){
-
-			if (response.error) {
-				console.log("Spotify Error: ");
-				console.log(response.message);
-			} else {
-				console.log("Access Token: ");
-				console.log(response.access_token);
-				accessToken = response.access_token;
-
-				$.ajax({
-					url: "https://api.spotify.com/v1/tracks/60bAuEmJQfzeDV1B84H4xY",
-					dataType: "json",
-					beforeSend: function (xhr) {
-						xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
-					},
-
-					success: function(results){
-						var resultsLength = Object.keys(results).length;
-						console.log(resultsLength);
-						if(resultsLength > 0){
-							// console.log(results.item.artists.length)
-							// console.log(results.item.album.images)
-							document.querySelector('#songimage').src = results.album.images[0].url;
-							document.querySelector('#songimage').alt = results.album.name;
-							document.querySelector('#songtitle').innerHTML = results.name;
-							var artists = results.artists[0].name;
-							if(results.artists.length > 1){
-								for (var i = 1; i < results.artists.length; i++){
-									artists = artists + " and " + results.artists[i].name;
-								}
-							}
-							document.querySelector('#artist').innerHTML = artists;
-						}
-						else{
-							document.querySelector('#songimage').src = 'img/noimage.jpg';
-							document.querySelector('#songimage').alt = 'No Personal Song of the Week';
-							document.querySelector('#songtitle').innerHTML = "No Personal Song of the Week";
-							document.querySelector('#artist').innerHTML = "N/A";
-						}
-					},
-					error: function(e){
-						console.log('AJAX Error: ');
-						console.log(e);
-					}
-				});
-
-			}
-
-		},
-		error: function(e){
-			console.log('AJAX Error: ');
-			console.log(e);
-		}
-	});
 
 </script>
 
