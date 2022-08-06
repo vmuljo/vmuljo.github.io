@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Q</title>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <span id="empty" class="slide"></span>
+            <h1>Q</h1>
+            <span class="admin-enable slide">&#9998;</span>
+        </nav>
+        <!-- <div class="modal">
+            <div id="adminModal">
+                <div class="modal-header">
+                    <div class="headerdiv">
+                        <h2>Enter admin pin</h2>
+                        <span class="close">&times;</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="admin-info">
+                        <div class="label"><label for="pin">PIN:</label></div>
+                        <div class="input"><input type="text" id="pin" name="pin"><small id="admin-error" class="error"></small></div>
+                        <button id="submitbutton" type="button">Submit</button>
+                    </form>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="contents" id="content"> 
+        <div class="buttons">
+            <button type="button" id="btn">Add to Queue</button> <!--Opens modal box-->
+            <button type="button" id="btn-remove" class="guest-option">Remove First</button>
+            <button type="button" id="btn-clear" class="guest-option">Clear Queue</button>
+            <button type="button" id="queue-lock" class="guest-option">Lock/Unlock Queue</button>
+        </div>
+        <div class="main">
+            
+            <div class="listcontainer">
+                <h2>Next up: </h2>
+                <ol class="namesList empty">
+                    No one is in the Queue!
+                </ol>
+            </div>
+        </div>
+
+        <div id="info-modal" class="modal1">
+            <div class="modal-content" id="info-modal-content">
+                <div class="modal-header">
+                    <div class="headerdiv">
+                        <h2 id="person">Person Name</h2>
+                        <span class="close" id="infoclose">&times;</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="person-info">
+                        <p>Queue spot: <span id="index"></span></p>
+                        <p>Phone number: <span id="num"></span></p>
+                        <p>Status: <span id="status"></span></p>
+                        <div id="info-buttons">
+                            <button type="button" id="call-up" class="info-buttons">Call Up</button> <!--Want to add server side code to send text messages to phone number but sticking to client side focus for now-->
+                            <button type="button" id="remove-guest" class="info-buttons">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modalForm" class="modal">
+            <div class="modal-content" id="queue-modal-content">
+                <div class="modal-header">
+                    <div class="headerdiv">
+                        <h2>Join the Q</h2>
+                        <span class="close" id="queueclose">&times;</span>
+                    </div>
+                    
+                </div>
+                
+                <div class="modal-body">
+                    <form class="queue-info">
+                        <div class="label"><label for="name">Name:</label></div>
+                        <div class="input"><input type="text" id="name" name="name"><small id="name-error" class="error"></small></div>
+                        <div class="label"><label for="number">Phone Number:</label></div>
+                        <div class="input"><input type="text" id="pNumber" name="number"><small id="num-error" class="error"></small></div>
+                        <button id="submitbtn" type="button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

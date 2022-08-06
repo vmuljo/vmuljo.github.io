@@ -16,10 +16,8 @@
 		#intro{width: 600px;}
 		#selfportrait{height: 500px; background-color: black; width: auto; border: 3px solid black; box-shadow: 8px 8px 1px #BCBCBC; float: right; margin: 10px 60px 50px 50px; padding: 0px;}
 		#container p{margin: 10px 50px 50px 60px; text-align: center; font-size: 25px; width: 60%; float: left;}
-		#spotify{margin: auto; width: 100%; text-align: center; width: 800px;}
-		#spotify p{margin: 0px; float: none; text-align: left; width: 100%;}
-		#songimage {width: 150px; height: auto; float: left; margin: 20px 50px; border: 2px solid black;}
-		#artist{font-style: italic;}
+		#spotify{margin: 0px auto; text-align: center;}
+		
 	</style>
 </head>
 <body>
@@ -44,7 +42,10 @@
 	<img src="img/me.jpg" id="selfportrait" alt="Image of Victor Muljo">
 	<p>I've been interested in engineering ever since I was in high school, where I first got to tinker with circuits. Ever since then, I knew Electrical and Computer Engineering is what I wanted to do. Currently, I'm searching for engineering internships to help me gain practical experience and hope to learn from various senior engineers to broaden my skillset.</p>
 	<!-- <div class="clearfloat"></div> -->
-	<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6woO7vBHGsSa8KRmNz1kDt?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+	<div id="spotify">
+		<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6woO7vBHGsSa8KRmNz1kDt?utm_source=generator" width="50%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+	</div>
+
 	<div class="clearfloat"></div>
 </div>
 
