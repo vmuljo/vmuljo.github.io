@@ -4,6 +4,8 @@ body{font-family: 'Poppins', sans-serif; margin: 0; height: 100%;  color: #3b435
 
 button{font-family: inherit; background-color: #f2f3f7; font-size: 1em; border: none; padding: 1vh 3vh; border-radius: 15px; cursor: pointer;}
 #navbar{margin: 0;}
+#nav a{text-decoration: none; color: #3b4352;}
+#nav a:hover{font-weight: bold;}
 nav{display: flex; 
 	flex-direction: row; 
 	justify-content: space-between;
