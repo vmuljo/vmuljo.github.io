@@ -60,6 +60,11 @@ nav{
 
 .buttons div{margin: 0 5px;overflow: hidden;}
 
+.disabled-button{
+    background-color: white;
+    border: 1px solid #dadce4;
+}
+
 .listcontainer{
     width: 70vw;
     margin: 1em;

@@ -2,7 +2,7 @@ const modal = document.querySelector("#modalForm");
 const infoModal = document.querySelector('#info-modal')
 const queueModalBlock = document.querySelector("#queue-modal-content");
 const infoModalBlock = document.querySelector("#info-modal-content");
-const btn = document.querySelector("#btn");
+var btn = document.querySelector("#btn");
 const queueclose = document.querySelector("#queueclose");
 const infoclose = document.querySelector("#infoclose");
 const list = document.querySelector(".namesList");
@@ -11,6 +11,7 @@ var contents = document.querySelector(".contents");
 var queue = [];
 var queueList = document.querySelectorAll(".namesList li");
 var queueArray = Array.from(queueList); 
+// var queuebtn = document.querySelector('#btn')
 
 const info = document.querySelector('#info-modal-content');
 class Person{
@@ -21,10 +22,6 @@ class Person{
     constructor(name_, number_){
         this.name = name_;
         this.number = number_;
-    }
-
-    getName(){
-        return this.name;
     }
 
     getPersonInfo(){
@@ -51,6 +48,10 @@ function adminToggle(){
             guestoption.parentNode.childNodes[1].style.cursor = "pointer";
             
         });
+        if(btn.classList.contains('disabled-button')){
+            btn.disabled = false;
+            btn.classList.remove('disabled-button');
+        }
     }
     else{
         const adminoptions = document.querySelectorAll('.admin-option');
@@ -59,6 +60,15 @@ function adminToggle(){
             adminoption.classList.remove('admin-option');
             adminoption.parentNode.childNodes[1].style.cursor = "default";
         });
+
+        if(lockToggle){
+            btn.disabled = true;
+            btn.classList.add('disabled-button');
+        }
+        else{
+            btn.disabled = false;
+            btn.classList.remove('disabled-button');
+        }
     }
 }
 
@@ -80,7 +90,6 @@ function modalToggle(modalClass, modalContent){
 }
 
 function viewGuest(){
-    // contents = document.querySelector(".contents");
 
     var name = document.querySelector('#person');
     var spot = document.querySelector('#index');
@@ -130,8 +139,6 @@ function queueEntryAttended(){
             console.log(i);
             console.log(guestList.length);
             queue[i].status = true;
-            // this.parentNode.remove();
-            // if(guestList.length == 0) makeEmpty();
         }
     })
 }
@@ -199,8 +206,6 @@ document.querySelector("#submitbtn").onclick = function(){
         list.appendChild(div_li);
 
         queueList = document.querySelectorAll(".namesList li");
-        // queueArray = Array.from(queueList); 
-        // console.log(queueArray);
         document.querySelector("#name").value = "";
         document.querySelector("#pNumber").value = "";
         modalToggle(modal, queueModalBlock);
@@ -246,6 +251,22 @@ document.querySelector('#btn-clear').onclick = () => {
     }
     console.log("No one is in the Queue!");
     alert("No one is in the queue!");
+}
+
+var queuelock = document.querySelector('#queue-lock');
+var lockToggle = false;
+
+queuelock.onclick = () => {
+    lockToggle = !lockToggle;
+    if(lockToggle){
+        queuelock.innerHTML = "Unlock Queue";
+        return;
+    }
+    queuelock.innerHTML = "Lock Queue";
+
+    // if(document.querySelector('.contents').classList.contains('guest-option')){
+    //     queuelock.disabled = true;
+    // }
 }
 
 btn.onclick = () => {modalToggle(modal, queueModalBlock);} // When "Add to queue" button is clicked, open modal
