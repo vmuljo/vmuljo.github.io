@@ -35,6 +35,55 @@ class Person{
     }
 }
 
+function saveQueue(){
+    localStorage.queue = JSON.stringify(queue);
+}
+
+function loadQueue(){
+    if(localStorage.queue != undefined){
+        queue = JSON.parse(localStorage.queue);
+        // Creates DOM elements
+        if(list.classList.contains('empty')){
+            list.classList.remove('empty');
+            list.innerHTML = "";
+        }
+        queue.forEach(queueitem => {
+            const li = document.createElement('li');
+            const deleteSpan =  document.createElement('span');
+            const readySpan = document.createElement('span');
+            const div_li = document.createElement('div');
+
+            // Adds classes and styling to each element
+            div_li.classList.add('queue-entry');
+            deleteSpan.classList.add('guest-option', 'remove');
+            readySpan.classList.add('guest-option', 'ready');
+            li.classList.add('guest-name');
+            li.style.cursor = "default";
+            // If currently in admin mode when adding to queue:
+            // if(document.querySelector('.contents').classList.contains('admin')){
+            //     deleteSpan.classList.add('admin-option');
+            //     readySpan.classList.add('admin-option');
+            //     deleteSpan.classList.remove('guest-option');
+            //     readySpan.classList.remove('guest-option');
+            //     li.style.cursor = "pointer";
+            // }
+
+            // Sets innerhtml of dom elements
+            deleteSpan.innerHTML = "&#10006;";
+            readySpan.innerHTML = "&#10004;";
+            li.innerHTML = queueitem.name;
+
+            // Sets the DOM structure and puts in HTML code
+            div_li.appendChild(readySpan);
+            div_li.appendChild(li);
+            div_li.appendChild(deleteSpan);
+            list.appendChild(div_li);
+        })
+        
+    }
+}
+loadQueue();
+
 // Toggles between guest and admin mode
 function adminToggle(){
     contents = document.querySelector('.contents')
@@ -51,7 +100,7 @@ function adminToggle(){
         });
         if(btn.classList.contains('disabled-button')){
             btn.disabled = false;
-            btn.classList.remove('disabled-button');
+            btn.classList.remove('disabled-button', 'noHover');
         }
     }
     else{
@@ -64,16 +113,16 @@ function adminToggle(){
 
         if(lockToggle){
             btn.disabled = true;
-            btn.classList.add('disabled-button');
+            btn.classList.add('disabled-button','noHover');
         }
         else{
             btn.disabled = false;
-            btn.classList.remove('disabled-button');
+            btn.classList.remove('disabled-button','noHover');
         }
     }
 }
 
-// Toggles the modal to add to queue
+// Toggles the modal depending on what type of modal
 function modalToggle(modalClass, modalContent){
     modalClass.classList.toggle('modal-active');
     if(modalClass.classList.contains('modal-active')){
@@ -130,8 +179,10 @@ function removeQueueEntry(){
             this.parentNode.remove();
             if(guestList.length == 0) makeEmpty();
             queue.splice(i, 1);
+            saveQueue();
         }
     })
+    
 }
 removeQueueEntry();
 
@@ -143,6 +194,7 @@ function queueEntryAttended(){
             console.log(i);
             console.log(guestList.length);
             queue[i].status = true;
+            saveQueue();
         }
     })
 }
@@ -157,10 +209,12 @@ function makeEmpty(){
 
 // When the submit button is clicked, add to queue
 document.querySelector("#submitbtn").onclick = function(){
+    // gets user input
     var name = document.querySelector("#name").value.trim();
     var num = document.querySelector("#pNumber").value.trim();
     var valid = true;
 
+    //Check if valid name or number
     if(name.length == 0){
         document.querySelector("#name-error").innerHTML = "&#9888; Name cannot be empty.";
         valid = false;
@@ -171,32 +225,36 @@ document.querySelector("#submitbtn").onclick = function(){
         document.querySelector("#num-error").innerHTML = "&#9888; Phone number cannot be empty.";
         valid = false;
     }
-    else if(/(^\d{10}$|^\d{3}\-\d{3}\-\d{4}$)/.test(num) == false){
-        document.querySelector("#num-error").innerHTML = "&#9888; Invalid phone format, use 1234567890 or 123-456-7890";
+    else if(/(^\d{10}$)/.test(num) == false){
+        document.querySelector("#num-error").innerHTML = "&#9888; Invalid phone format, use 0123456789";
         valid = false;
     }
     else{document.querySelector("#num-error").innerHTML =""; valid = true;}
 
-    
+    // if name and number is valid:
     if(valid){
         if(list.classList.contains('empty')){
             list.classList.remove('empty');
             list.innerHTML = "";
         }
+        // Add a new Person object to a queue
         const person = new Person(name, num);
         queue.push(person);
         var latestPushedName = queue.at(-1).name;
 
+        // Creates DOM elements
         const li = document.createElement('li');
         const deleteSpan =  document.createElement('span');
         const readySpan = document.createElement('span');
         const div_li = document.createElement('div');
 
+        // Adds classes and styling to each element
         div_li.classList.add('queue-entry');
         deleteSpan.classList.add('guest-option', 'remove');
         readySpan.classList.add('guest-option', 'ready');
         li.classList.add('guest-name');
         li.style.cursor = "default";
+        // If currently in admin mode when adding to queue:
         if(document.querySelector('.contents').classList.contains('admin')){
             deleteSpan.classList.add('admin-option');
             readySpan.classList.add('admin-option');
@@ -205,10 +263,12 @@ document.querySelector("#submitbtn").onclick = function(){
             li.style.cursor = "pointer";
         }
 
+        // Sets innerhtml of dom elements
         deleteSpan.innerHTML = "&#10006;";
         readySpan.innerHTML = "&#10004;";
         li.innerHTML = latestPushedName;
 
+        // Sets the DOM structure and puts in HTML code
         div_li.appendChild(readySpan);
         div_li.appendChild(li);
         div_li.appendChild(deleteSpan);
@@ -221,8 +281,8 @@ document.querySelector("#submitbtn").onclick = function(){
         removeQueueEntry();
         viewGuest();
         queueEntryAttended();
+        saveQueue();
     }
-
 }
 // Admin button: Removes first person from queue
 document.querySelector('#btn-remove').onclick = () => {
@@ -246,6 +306,7 @@ document.querySelector('#btn-remove').onclick = () => {
         
         var cleared = true;
     }
+    saveQueue();
     console.log(queueList.length);
 }
 
@@ -256,6 +317,7 @@ document.querySelector('#btn-clear').onclick = () => {
         queueList = document.querySelectorAll(".namesList li");
         queue = [];
         makeEmpty();
+        localStorage.clear();
         return;
     }
     console.log("No one is in the Queue!");
@@ -281,6 +343,7 @@ document.querySelector('#remove-guest').onclick = function(){
     if(guestList.length == 0) makeEmpty();
     
     queue.splice(clickedGuestIndex, 1);
+    saveQueue();
 }
 
 btn.onclick = () => {modalToggle(modal, queueModalBlock);} // When "Add to queue" button is clicked, open modal
@@ -291,6 +354,7 @@ queueclose.onclick = function(){
         document.querySelector("#num-error").innerHTML ="";
 }
 
+// Close info modal
 infoclose.onclick = () => {
     modalToggle(infoModal, infoModalBlock);
 }
