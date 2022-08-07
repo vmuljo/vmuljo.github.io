@@ -87,9 +87,7 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
 
 .remove, .ready{font-size: 26px; margin: auto 5px; cursor: pointer;}
 
-
-/* #modalForm{display: none;} */
-.modal, .modal1{
+.modal{
     display: none;
     position: fixed;
     left: 0;
@@ -101,7 +99,6 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* .modal1{display:block;} */
 
 .modal-content{
     position: relative;
@@ -182,7 +179,7 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
     font-size: 18px;
 }
 
-.label{margin-top: 1em;}
+.label{margin-top: 1em; padding-left: 3px;}
 
 .queue-info input, .admin-info input{
     border: 0;

@@ -37,7 +37,7 @@
             <button type="button" id="btn">Add to Queue</button> <!--Opens modal box-->
             <button type="button" id="btn-remove" class="guest-option">Remove First</button>
             <button type="button" id="btn-clear" class="guest-option">Clear Queue</button>
-            <button type="button" id="queue-lock" class="guest-option">Lock/Unlock Queue</button>
+            <button type="button" id="queue-lock" class="guest-option">Lock Queue</button>
         </div>
         <div class="main">
             
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div id="info-modal" class="modal1">
+        <div id="info-modal" class="modal">
             <div class="modal-content" id="info-modal-content">
                 <div class="modal-header">
                     <div class="headerdiv">
@@ -86,7 +86,7 @@
                         <div class="label"><label for="name">Name:</label></div>
                         <div class="input"><input type="text" id="name" name="name"><small id="name-error" class="error"></small></div>
                         <div class="label"><label for="number">Phone Number:</label></div>
-                        <div class="input"><input type="text" id="pNumber" name="number"><small id="num-error" class="error"></small></div>
+                        <div class="input"><input type="tel" id="pNumber" name="number" placeholder="Format: 6261234567" pattern="[0-9]{10}" minlength="10"><small id="num-error" class="error"></small></div>
                         <button id="submitbtn" type="button">Submit</button>
                     </form>
                 </div>

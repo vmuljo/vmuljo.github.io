@@ -11,7 +11,8 @@ var contents = document.querySelector(".contents");
 var queue = [];
 var queueList = document.querySelectorAll(".namesList li");
 var queueArray = Array.from(queueList); 
-// var queuebtn = document.querySelector('#btn')
+var queuelock = document.querySelector('#queue-lock');
+var lockToggle = false;
 
 const info = document.querySelector('#info-modal-content');
 class Person{
@@ -89,6 +90,8 @@ function modalToggle(modalClass, modalContent){
     }
 }
 
+var clickedGuest;
+var clickedGuestIndex;
 function viewGuest(){
 
     var name = document.querySelector('#person');
@@ -100,8 +103,8 @@ function viewGuest(){
         queueList = document.querySelectorAll(".queue-entry li");
         queueList.forEach((guest, i) =>{
             guest.onclick = function(){
-                console.log(this);
-                console.log(queue[i]);
+                clickedGuest = this;
+                clickedGuestIndex = i;
                 name.innerHTML = queue.at(i).name;
                 spot.innerHTML = i+1;
                 phone.innerHTML = queue[i].number;
@@ -132,6 +135,7 @@ function removeQueueEntry(){
 }
 removeQueueEntry();
 
+// Function to set guest as attended if check mark clicked
 function queueEntryAttended(){
     var guestList = document.querySelectorAll('.ready');
     guestList.forEach((guest, i) => {
@@ -164,7 +168,11 @@ document.querySelector("#submitbtn").onclick = function(){
     else{document.querySelector("#name-error").innerHTML =""; valid = true;}
 
     if(num.length == 0){
-        document.querySelector("#num-error").innerHTML = "&#9888; Number cannot be empty.";
+        document.querySelector("#num-error").innerHTML = "&#9888; Phone number cannot be empty.";
+        valid = false;
+    }
+    else if(/(^\d{10}$|^\d{3}\-\d{3}\-\d{4}$)/.test(num) == false){
+        document.querySelector("#num-error").innerHTML = "&#9888; Invalid phone format, use 1234567890 or 123-456-7890";
         valid = false;
     }
     else{document.querySelector("#num-error").innerHTML =""; valid = true;}
@@ -187,6 +195,7 @@ document.querySelector("#submitbtn").onclick = function(){
         div_li.classList.add('queue-entry');
         deleteSpan.classList.add('guest-option', 'remove');
         readySpan.classList.add('guest-option', 'ready');
+        li.classList.add('guest-name');
         li.style.cursor = "default";
         if(document.querySelector('.contents').classList.contains('admin')){
             deleteSpan.classList.add('admin-option');
@@ -211,7 +220,7 @@ document.querySelector("#submitbtn").onclick = function(){
         modalToggle(modal, queueModalBlock);
         removeQueueEntry();
         viewGuest();
-        queueEntryAttended()
+        queueEntryAttended();
     }
 
 }
@@ -253,9 +262,7 @@ document.querySelector('#btn-clear').onclick = () => {
     alert("No one is in the queue!");
 }
 
-var queuelock = document.querySelector('#queue-lock');
-var lockToggle = false;
-
+// Admin button: Locks Add to Queue button in guest mode to prevent more people
 queuelock.onclick = () => {
     lockToggle = !lockToggle;
     if(lockToggle){
@@ -263,10 +270,17 @@ queuelock.onclick = () => {
         return;
     }
     queuelock.innerHTML = "Lock Queue";
+}
 
-    // if(document.querySelector('.contents').classList.contains('guest-option')){
-    //     queuelock.disabled = true;
-    // }
+// Info Modal Remove Button: Removes the selected guest item from the queue
+document.querySelector('#remove-guest').onclick = function(){
+    console.log(queue);
+    var guestList = document.getElementsByClassName('guest-name');
+    clickedGuest.parentNode.remove();
+    modalToggle(infoModal, infoModalBlock);
+    if(guestList.length == 0) makeEmpty();
+    
+    queue.splice(clickedGuestIndex, 1);
 }
 
 btn.onclick = () => {modalToggle(modal, queueModalBlock);} // When "Add to queue" button is clicked, open modal
