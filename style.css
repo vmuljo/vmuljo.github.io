@@ -47,7 +47,7 @@ nav p, ul{
 	justify-content: center;
 	text-align: center;
 }
-#intro *{margin: 1% 0;}
+#intro *{margin: 2% 0;}
 .resume{border: 2px solid #315bf0; padding: 5px; text-decoration: none; color: #3b4352; border-radius: 10px;}
 .contact{border: 2px solid #315bf0; padding: 5px; text-decoration: none; color: #3b4352; border-radius: 10px;
 	margin: 0 auto;
@@ -104,7 +104,7 @@ footer img{margin: 0; padding: 0;}
 
 #footer-text{font-size: 12px; text-align: center;}
 @media (min-width: 370px){
-	#intro h1{font-size: 41px; font-weight: normal;}
+	#intro h1{font-size: 39px; font-weight: normal;}
 	#intro h2{font-weight: normal; font-size: 18px;}
 	#intro h3{font-size: 12px;}
 }
@@ -126,6 +126,7 @@ footer img{margin: 0; padding: 0;}
     nav ul{
 		width: 40%;
 	}
+	#intro *{margin: 1% 0;}
 	
 }
 

@@ -83,9 +83,11 @@ function loadQueue(){
 }
 loadQueue();
 
+// Saves status of lock so if admin locks the queue, the status is saved and guests can't simply refresh to override it
 function saveLockStatus(){
     localStorage.lock = lockToggle;
 }
+// Checks the lock status in local storage
 function checkLock(){
     console.log(localStorage.lock);
     if(localStorage.lock == 'true'){
@@ -155,6 +157,7 @@ function modalToggle(modalClass, modalContent){
 
 var clickedGuest;
 var clickedGuestIndex;
+// Sets the info modal to clicked guest information from on queue
 function viewGuest(){
 
     var name = document.querySelector('#person');
