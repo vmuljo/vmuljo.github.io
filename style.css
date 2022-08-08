@@ -72,7 +72,8 @@ nav p, ul{
 }
 
 #sections h2{font-size: 23px; margin-bottom: 10px;}
-.section{margin-bottom: 1em;}
+.section{margin: 15vh auto;}
+#about{margin-top: 5vh;}
 
 #project{
 	display: grid;
@@ -83,7 +84,7 @@ nav p, ul{
 }
 
 #contact p{text-align: center; margin: 0 auto 5px;}
-#footer{
+footer{
 	display: flex; 
 	flex-direction: row; 
 	justify-content: space-between;
@@ -96,6 +97,10 @@ nav p, ul{
 	padding: 10px 10px;
 	
 }
+
+#space{width: 24px;}
+footer img{margin: 0; padding: 0;}
+
 
 #footer-text{font-size: 12px; text-align: center;}
 @media (min-width: 370px){

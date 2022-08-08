@@ -12,9 +12,8 @@ var queue = [];
 var queueList = document.querySelectorAll(".namesList li");
 var queueArray = Array.from(queueList); 
 var queuelock = document.querySelector('#queue-lock');
-var lockToggle = false;
+var lockToggle=false;
 
-const info = document.querySelector('#info-modal-content');
 class Person{
     name;
     number;
@@ -40,7 +39,7 @@ function saveQueue(){
 }
 
 function loadQueue(){
-    if(localStorage.queue != undefined){
+    if(localStorage.queue != '[]'){
         queue = JSON.parse(localStorage.queue);
         // Creates DOM elements
         if(list.classList.contains('empty')){
@@ -83,6 +82,21 @@ function loadQueue(){
     }
 }
 loadQueue();
+
+function saveLockStatus(){
+    localStorage.lock = lockToggle;
+}
+function checkLock(){
+    console.log(localStorage.lock);
+    if(localStorage.lock == 'true'){
+        lockToggle = true;
+        btn.disabled = true;
+        btn.classList.add('disabled-button','noHover');
+        queuelock.innerHTML = "Unlock Queue";
+        return;
+    }
+}
+checkLock();
 
 // Toggles between guest and admin mode
 function adminToggle(){
@@ -174,8 +188,8 @@ function removeQueueEntry(){
     var guestList = document.getElementsByClassName('remove');
     Array.from(guestList).forEach((guest, i) => {
         guest.onclick = function(){
-            console.log(i);
-            console.log(guestList.length);
+            // console.log(i);
+            // console.log(guestList.length);
             this.parentNode.remove();
             if(guestList.length == 0) makeEmpty();
             queue.splice(i, 1);
@@ -191,8 +205,8 @@ function queueEntryAttended(){
     var guestList = document.querySelectorAll('.ready');
     guestList.forEach((guest, i) => {
         guest.onclick = function(){
-            console.log(i);
-            console.log(guestList.length);
+            // console.log(i);
+            // console.log(guestList.length);
             queue[i].status = true;
             saveQueue();
         }
@@ -287,7 +301,6 @@ document.querySelector("#submitbtn").onclick = function(){
 // Admin button: Removes first person from queue
 document.querySelector('#btn-remove').onclick = () => {
     var cleared = false;
-    // console.log(list);
     console.log(queueList);
     if(queueList.length > 0 && !cleared){
         const first = queueArray.shift();
@@ -327,6 +340,7 @@ document.querySelector('#btn-clear').onclick = () => {
 // Admin button: Locks Add to Queue button in guest mode to prevent more people
 queuelock.onclick = () => {
     lockToggle = !lockToggle;
+    saveLockStatus();
     if(lockToggle){
         queuelock.innerHTML = "Unlock Queue";
         return;

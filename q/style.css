@@ -61,7 +61,7 @@ nav{
     /* flex-direction:ro */
 }
 
-.buttons div{margin: 0 5px;overflow: hidden;}
+/* .buttons div{margin: 0 5px;overflow: hidden;} */
 
 .disabled-button{
     background-color: white;
