@@ -37,6 +37,7 @@ class Person{
 function saveQueue(){
     localStorage.queue = JSON.stringify(queue);
 }
+saveQueue();
 
 function loadQueue(){
     if(localStorage.queue != '[]'){
