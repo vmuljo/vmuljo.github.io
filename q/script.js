@@ -104,11 +104,12 @@ checkLock();
 // Toggles between guest and admin mode
 function adminToggle(){
     contents = document.querySelector('.contents')
+    var icon = document.querySelector('.fa-solid');
     contents.classList.toggle("admin");
     if(contents.classList.contains("admin")){
         const guestoptions = document.querySelectorAll('.guest-option');
         viewGuest();
-        queueEntryAttended()
+        queueEntryAttended();
         guestoptions.forEach(guestoption => {
             guestoption.classList.add('admin-option');
             guestoption.classList.remove('guest-option');

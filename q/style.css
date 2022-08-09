@@ -240,6 +240,7 @@ footer{
 }
 
 footer p{font-size: 12px; text-align: center; margin: 0; padding: 0;}
+footer a{color: #1D2539;}
 
 /* Super Small Devices: Fold
 @media (min-width: 360px){
