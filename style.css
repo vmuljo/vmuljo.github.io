@@ -74,20 +74,27 @@ nav p, ul{
 #sections h2{font-size: 23px; margin-bottom: 10px;}
 .section{margin: 15vh auto;}
 #about{margin-top: 5vh;}
-
-#project{
-	display: grid;
-	grid-template-columns: 33% 33% 33%;
-	grid-template-rows: auto auto;
+.tech{
+	margin-bottom: 15px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
 	justify-content: space-around;
+}
+#project{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	align-content: space-between;
 }
 
+.mid{margin: 15px 0;}
+
+.fa-brands{font-size: 25px; color: #3b4352;}
+
 #contact p{text-align: center; margin: 0 auto 5px;}
 footer{
-	display: flex; 
-	flex-direction: row; 
-	justify-content: space-between;
+	text-align: center;
 	position: relative;
 	right: 0;
 	left: 0;
@@ -95,14 +102,11 @@ footer{
 	background-color: white;
 	box-shadow: 0px -1px 15px 0 rgba(0, 0, 0, 0.08);
 	padding: 10px 10px;
-	
 }
 
-#space{width: 24px;}
-footer img{margin: 0; padding: 0;}
+.socials{color: #3b4352; margin: 5px; font-size: 15px;}
 
-
-#footer-text{font-size: 12px; text-align: center;}
+#footer-text{font-size: 12px; text-align: center; margin-bottom: 10px;}
 @media (min-width: 370px){
 	#intro h1{font-size: 36px; font-weight: normal;}
 	#intro h2{font-weight: normal; font-size: 18px;}
@@ -127,6 +131,15 @@ footer img{margin: 0; padding: 0;}
 		width: 40%;
 	}
 	#intro *{margin: 1% 0;}
+	#project{
+		display: grid;
+		grid-template-columns: 33% 33% 33%;
+		grid-template-rows: auto auto;
+		justify-content: space-around;
+		align-content: space-between;
+	}
+	#mid{margin: 0;}
+	.tech{width: 30%;}
 	
 }
 
