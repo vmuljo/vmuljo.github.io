@@ -75,7 +75,7 @@ nav p, ul{
 #sections h2{font-size: 23px; margin-bottom: 10px;}
 .section{margin: 15vh auto;}
 #about{margin-top: 5vh;}
-.tech{
+.techlist{
 	margin-bottom: 15px;
 	width: 100%;
 	display: flex;
@@ -140,7 +140,7 @@ footer{
 		align-content: space-between;
 	}
 	#mid{margin: 0;}
-	.tech{width: 30%;}
+	.techlist{width: 30%;}
 	
 }
 

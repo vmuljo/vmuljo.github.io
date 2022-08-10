@@ -14,25 +14,25 @@
         <nav>
             <span id="empty" class="slide"></span>
             <h1>Q</h1>
-            <span class="admin-enable"><i class="fa-solid fa-screwdriver-wrench"></i></i></i></span>
-            <!-- <span class="admin-enable slide">&#9998;</span> -->
+            <span class="admin-enable"><i class="fa-solid fa-screwdriver-wrench"></i></span>
         </nav>
-        <!-- <div class="modal">
-            <div id="adminModal">
+        <div class="modal" id="admin-modal">
+            <div class="modal-content" id="admin-modal-content">
                 <div class="modal-header">
                     <div class="headerdiv">
-                        <h2>Enter admin pin</h2>
-                        <span class="close">&times;</span>
+                        <h2>Admin Login</h2>
+                        <span class="close" id="adminclose">&times;</span>
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form class="admin-info">
-                        <div class="label"><label for="pin">PIN:</label></div>
+                    <form class="modal-info">
+                        <div class="label"><label for="pin">Admin PIN:</label></div>
                         <div class="input"><input type="text" id="pin" name="pin"><small id="admin-error" class="error"></small></div>
-                        <button id="submitbutton" type="button">Submit</button>
+                        <button id="submitbutton" type="button">Log in</button>
                     </form>
+                    
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
     <div class="contents" id="content"> 
@@ -47,7 +47,7 @@
             <div class="listcontainer">
                 <h2>Next up: </h2>
                 <ol class="namesList empty">
-                    No one is in the Queue!
+                    <li id="filler">No one is in the Queue!</li>
                 </ol>
             </div>
         </div>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <div id="person-info">
+                    <div class="modal-info" id="person-info">
                         <p>Queue spot: <span id="index"></span></p>
                         <p>Phone number: <span id="num"></span></p>
                         <p>Status: <span id="status"></span></p>
@@ -85,11 +85,11 @@
                 </div>
                 
                 <div class="modal-body">
-                    <form class="queue-info">
+                    <form class="modal-info" id="queue-info">
                         <div class="label"><label for="name">Name:</label></div>
                         <div class="input"><input type="text" id="name" name="name"><small id="name-error" class="error"></small></div>
-                        <div class="label"><label for="number">Phone Number:</label></div>
-                        <div class="input"><input type="tel" id="pNumber" name="number" placeholder="Format: 6261234567" pattern="[0-9]{10}" minlength="10"><small id="num-error" class="error"></small></div>
+                        <div class="label"><label for="pNumber">Phone Number:</label></div>
+                        <div class="input"><input type="tel" id="pNumber" name="pNumber" placeholder="Format: 6261234567" pattern="[0-9]{10}" minlength="10"><small id="num-error" class="error"></small></div>
                         <button id="submitbtn" type="button">Submit</button>
                     </form>
                 </div>

@@ -85,10 +85,11 @@ nav{
 }
 ol{list-style:none; width: 100%;}
 li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: center; background-color: #f2f3f7; width: 90%;}
+#filler{all:unset}
+
 .queue-entry{
     display: flex;
     flex-direction: row;
-    /* background-color: blue; */
     justify-content: center;
 }
 
@@ -117,12 +118,6 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
     box-shadow: 0px 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
-#adminModal{
-    /* margin: 100% auto auto; */
-    position: relative;
-    top: 50%;
-    display: none;
-}
 
 
 .modal-header{
@@ -158,7 +153,7 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
     color: #FE3B32; text-decoration: none; cursor: pointer;
 }
 
-.queue-info{
+#queue-info{
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: 100%;
@@ -168,10 +163,10 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
     width: 90%;
 }
 
-.admin-info{
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 35% 65%;
+#admin-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     justify-content: center;
     /* align-content: space-around; */
     align-items: flex-end;
@@ -180,15 +175,13 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
     /* background-color: red; */
 }
 
-/* .queue-info div{margin: 5px;} */
-
-.queue-info label, .admin-info label{
+.modal-info label{
     font-size: 18px;
 }
 
 .label{margin-top: 1em; padding-left: 3px;}
 
-.queue-info input, .admin-info input{
+.modal-info input{
     border: 0;
     border-bottom: 1.7px solid black;
     width: 100%;
@@ -200,10 +193,10 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
 }
 
 
-.queue-info button{
+.modal-info button{
     margin-top: 25px;
 }
-.queue-info button:hover{
+.modal-info button:hover{
     cursor: pointer;
 }
 
@@ -245,9 +238,9 @@ footer a{color: #1D2539;}
 
 /*Small Devices: Landscape Phones*/
 @media (min-width: 576px){
-    #adminModal{
+    /* #admin-modal-content{
         height: 23%;
-    }
+    } */
 }
 
 /*Medium Devices: Tablets*/
@@ -256,11 +249,11 @@ footer a{color: #1D2539;}
     .headerdiv h2{font-size: x-large;}
     .error{font-size: 14px;}
     .listcontainer{width: 40vw;}
-    #adminModal{
-        /* margin: 100% auto auto; */
+    /* #admin-modal-content{
+        margin: 100% auto auto;
         position: relative;
-        top: 0%;
-    }
+        top: 0;
+    } */
     
 }
 

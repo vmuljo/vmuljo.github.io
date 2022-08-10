@@ -2,9 +2,12 @@ const modal = document.querySelector("#modalForm");
 const infoModal = document.querySelector('#info-modal')
 const queueModalBlock = document.querySelector("#queue-modal-content");
 const infoModalBlock = document.querySelector("#info-modal-content");
+const adminModal = document.querySelector("#admin-modal");
+const adminModalBlock = document.querySelector("#admin-modal-content");
 var btn = document.querySelector("#btn");
 const queueclose = document.querySelector("#queueclose");
 const infoclose = document.querySelector("#infoclose");
+const adminclose = document.querySelector("#adminclose");
 const list = document.querySelector(".namesList");
 const admin = document.querySelector(".admin-enable");
 var contents = document.querySelector(".contents");
@@ -59,14 +62,6 @@ function loadQueue(){
             readySpan.classList.add('guest-option', 'ready');
             li.classList.add('guest-name');
             li.style.cursor = "default";
-            // If currently in admin mode when adding to queue:
-            // if(document.querySelector('.contents').classList.contains('admin')){
-            //     deleteSpan.classList.add('admin-option');
-            //     readySpan.classList.add('admin-option');
-            //     deleteSpan.classList.remove('guest-option');
-            //     readySpan.classList.remove('guest-option');
-            //     li.style.cursor = "pointer";
-            // }
 
             // Sets innerhtml of dom elements
             deleteSpan.innerHTML = "&#10006;";
@@ -104,11 +99,9 @@ checkLock();
 // Toggles between guest and admin mode
 function adminToggle(){
     contents = document.querySelector('.contents')
-    var icon = document.querySelector('.fa-solid');
     contents.classList.toggle("admin");
     if(contents.classList.contains("admin")){
         const guestoptions = document.querySelectorAll('.guest-option');
-        viewGuest();
         queueEntryAttended();
         guestoptions.forEach(guestoption => {
             guestoption.classList.add('admin-option');
@@ -120,6 +113,7 @@ function adminToggle(){
             btn.disabled = false;
             btn.classList.remove('disabled-button', 'noHover');
         }
+        viewGuest();
     }
     else{
         const adminoptions = document.querySelectorAll('.admin-option');
@@ -377,6 +371,10 @@ queueclose.onclick = function(){
 infoclose.onclick = () => {
     modalToggle(infoModal, infoModalBlock);
 }
+
+adminclose.onclick = () => {
+    modalToggle(adminModal, adminModalBlock);
+}
 // When anywhere outside of the modal window is clicked, close the modal
 window.onclick = (e) => {
     if(e.target == modal){
@@ -385,12 +383,14 @@ window.onclick = (e) => {
         document.querySelector("#num-error").innerHTML ="";
         return;
     }
-    if(e.target == infoModal){
+    if(e.target == infoModal || e.target == adminModal){
         modalToggle(infoModal, infoModalBlock);
     }
 }
 
-// When admin (pencil) button is clicked, close modal
+
+// When admin (tool symbol) button is clicked, close modal
 admin.onclick = ()=>{
+    modalToggle(adminModal, adminModalBlock);
     adminToggle();
 }
