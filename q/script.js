@@ -391,6 +391,6 @@ window.onclick = (e) => {
 
 // When admin (tool symbol) button is clicked, close modal
 admin.onclick = ()=>{
-    modalToggle(adminModal, adminModalBlock);
+    // modalToggle(adminModal, adminModalBlock);
     adminToggle();
 }
