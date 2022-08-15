@@ -1,4 +1,4 @@
-const modal = document.querySelector("#modalForm");
+const modal = document.querySelector("#queue-modal");
 const infoModal = document.querySelector('#info-modal')
 const queueModalBlock = document.querySelector("#queue-modal-content");
 const infoModalBlock = document.querySelector("#info-modal-content");
@@ -383,14 +383,35 @@ window.onclick = (e) => {
         document.querySelector("#num-error").innerHTML ="";
         return;
     }
-    if(e.target == infoModal || e.target == adminModal){
+    if(e.target == infoModal){
         modalToggle(infoModal, infoModalBlock);
+    }
+    if(e.target == adminModal){
+        modalToggle(adminModal, adminModalBlock);
     }
 }
 
-
 // When admin (tool symbol) button is clicked, close modal
 admin.onclick = ()=>{
-    // modalToggle(adminModal, adminModalBlock);
-    adminToggle();
+    contents = document.querySelector('.contents')
+
+    if(!contents.classList.contains("admin")){
+        modalToggle(adminModal, adminModalBlock);
+        document.querySelector('#adminsubmit').onclick = () => {
+            var pin = document.querySelector('#pin').value.trim();
+            if(pin == "1234"){
+                adminToggle();
+                modalToggle(adminModal, adminModalBlock);
+            }
+            else{
+                document.querySelector('#admin-error').innerHTML = "&#9888; Invalid PIN";
+                
+            }
+            document.querySelector('#pin').value = "";
+        }
+    }
+    else{adminToggle();}
+
+    
+    
 }

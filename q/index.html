@@ -25,12 +25,14 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form class="modal-info">
+                    <form class="modal-info" id="admin-info">
                         <div class="label"><label for="pin">Admin PIN:</label></div>
-                        <div class="input"><input type="text" id="pin" name="pin"><small id="admin-error" class="error"></small></div>
-                        <button id="submitbutton" type="button">Log in</button>
+                        <div class="input"><input type="text" id="pin" name="pin" placeholder="Code: 1234"></div>
+                        <div></div>
+                        <div><small id="admin-error" class="error"></small></div>
                     </form>
                     
+                    <button id="adminsubmit" type="button">Log in</button>
                 </div>
             </div>
         </div>
@@ -74,7 +76,7 @@
             </div>
         </div>
         
-        <div id="modalForm" class="modal">
+        <div id="queue-modal" class="modal">
             <div class="modal-content" id="queue-modal-content">
                 <div class="modal-header">
                     <div class="headerdiv">

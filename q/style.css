@@ -118,7 +118,9 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
     box-shadow: 0px 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
-
+#admin-modal-content{
+    margin: 65vh auto auto;
+}
 
 .modal-header{
     padding: 20px 16px;
@@ -164,16 +166,19 @@ li{border: 2px solid #888; border-radius: 15px; margin: 10px 0px; text-align: ce
 }
 
 #admin-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    justify-content: center;
-    /* align-content: space-around; */
+    /* display: flex;
+    align-items: center;
+    justify-content: space-evenly; */
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-template-rows: auto auto;
+    justify-content: space-evenly;
     align-items: flex-end;
-    margin: auto;
-    width: 90%;
-    /* background-color: red; */
+
 }
+
+#adminsubmit{width: 100%; margin-top: 1em;}
+
 
 .modal-info label{
     font-size: 18px;
@@ -254,6 +259,10 @@ footer a{color: #1D2539;}
         position: relative;
         top: 0;
     } */
+    #admin-modal-content{
+        width: 25%;
+        margin: 12% auto auto;
+    }
     
 }
 
