@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @font-face{
 	font-family: SF;
-  	src: url('fonts/SF-Pro-Display-Light.otf');
+  	src: url('fonts/SF-Pro-Display-Thin.otf');
 	
 }
 @font-face{
 	font-family: SFThin;
-  	src: url('fonts/SF-Pro-Display-Thin.otf');
+  	src: url('fonts/SF-Pro-Text-Thin.otf');
 	
 }
 
-body{padding: 10px;font-family: 'SF', sans-serif; margin: 0; height: 100%;  color: #3b4352;}
+body{padding: 10px;font-family: 'SFThin', sans-serif; margin: 0; height: 100%;  color: #3b4352;}
 *{padding: 0; box-sizing: border-box; margin: 0}
 
 button{font-family: inherit; background-color: #f2f3f7; font-size: 1em; border: none; padding: 1vh 3vh; border-radius: 15px; cursor: pointer;}
@@ -100,6 +100,7 @@ nav ul i{
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	/* font-family: 'SF', sans-serif; */
 }
 #intro *{margin: 2% 0;}
 .linkbutton{width: 30%; border: 2px solid #315bf0; padding: 5px; text-decoration: none; color: #3b4352; border-radius: 10px;}
@@ -120,8 +121,8 @@ nav ul i{
 	width: 30%;
 }
 
-#intro h1{font-size: 28px; font-weight: normal; font-family: 'SFThin', sans-serif;}
-#intro h2{font-weight: normal; font-size: 15px;}
+#intro h1{font-size: 28px; font-weight: normal; font-family: 'SF', sans-serif;}
+#intro h2{font-weight: normal; font-size: 14px;}
 #intro h3{font-size: 12px;}
 #name{
 	color: #315bf0; 
