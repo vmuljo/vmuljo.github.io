@@ -1,29 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-
 @font-face {
-    font-family: "SFThin";
-	src: url('fonts/SF-Pro-Text-Thin.otf') format('opentype');
-    src: url('fonts/SFProText-Thin.eot');
-    src: url('fonts/SFProText-Thin.eot?#iefix') format('embedded-opentype'),
-        url('fonts/SFProText-Thin.woff2') format('woff2'),
-        url('fonts/SFProText-Thin.woff') format('woff'),
-        url('fonts/SFProText-Thin.ttf') format('truetype'),
-		url('fonts/SF-Pro-Text-Thin.otf') format('opentype'),
-        url('fonts/SFProText-Thin.svg#SFProText-Thin') format('svg');
+    font-family: 'SFText';
+    src: url('fonts/SFProText-Light.eot');
+    src: url('fonts/SFProText-Light.eot?#iefix') format('embedded-opentype'),
+        url('fonts/SFProText-Light.woff2') format('woff2'),
+        url('fonts/SFProText-Light.woff') format('woff'),
+        url('fonts/SFProText-Light.ttf') format('truetype'),
+		url('fonts/SF-Pro-Text-Light.otf') format('opentype'),
+        url('fonts/SFProText-Light.svg#SFProText-Light') format('svg');
 }
 
 @font-face {
-    font-family: "SF";
-    src: url('fonts/SFProDisplay-Thin.eot');
-    src: url('fonts/SFProDisplay-Thin.eot?#iefix') format('embedded-opentype'),
-        url('fonts/SFProDisplay-Thin.woff2') format('woff2'),
-        url('fonts/SFProDisplay-Thin.woff') format('woff'),
-        url('fonts/SFProDisplay-Thin.ttf') format('truetype'),
-		url('fonts/SF-Pro-Display-Thin.otf') format('opentype'),
-        url('fonts/SFProDisplay-Thin.svg#SFProDisplay-Thin') format('svg');
+    font-family: 'SF';
+    src: url('fonts/SFProDisplay-Light.eot');
+    src: url('fonts/SFProDisplay-Light.eot?#iefix') format('embedded-opentype'),
+        url('fonts/SFProDisplay-Light.woff2') format('woff2'),
+        url('fonts/SFProDisplay-Light.woff') format('woff'),
+        url('fonts/SFProDisplay-Light.ttf') format('truetype'),
+		url('fonts/SF-Pro-Display-Light.otf') format('opentype'),
+        url('fonts/SFProDisplay-Light.svg#SFProDisplay-Light') format('svg');
 }
 
-body{padding: 10px;font-family: 'SFThin', sans-serif; margin: 0; height: 100%;  color: #3b4352;}
+body{padding: 10px;font-family: 'SFText', sans-serif; margin: 0; height: 100%;  color: #3b4352;}
 *{padding: 0; box-sizing: border-box; margin: 0}
 
 button{font-family: inherit; background-color: #f2f3f7; font-size: 1em; border: none; padding: 1vh 3vh; border-radius: 15px; cursor: pointer;}
