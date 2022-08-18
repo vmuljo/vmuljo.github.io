@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @font-face{
 	font-family: SF;
-  	src: url('fonts/SF-Pro-Display-Thin.otf');
+  	src: url('fonts/SF-Pro-Display-Thin.otf') format("opentype");
 	
 }
 @font-face{
 	font-family: SFThin;
-  	src: url('fonts/SF-Pro-Text-Thin.otf');
+  	src: url('fonts/SF-Pro-Text-Thin.otf') format("truetype");
 	
 }
 
