@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'SFProText';
+    src: url('SFProText-Thin.eot');
+    src: url('SFProText-Thin.eot?#iefix') format('embedded-opentype'),
+        url('SFProText-Thin.woff2') format('woff2'),
+        url('SFProText-Thin.woff') format('woff'),
+        url('SFProText-Thin.ttf') format('truetype'),
+        url('SFProText-Thin.svg#SFProText-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('SFProDisplay-Thin.eot');
+    src: url('SFProDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+        url('SFProDisplay-Thin.woff2') format('woff2'),
+        url('SFProDisplay-Thin.woff') format('woff'),
+        url('SFProDisplay-Thin.ttf') format('truetype'),
+        url('SFProDisplay-Thin.svg#SFProDisplay-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+

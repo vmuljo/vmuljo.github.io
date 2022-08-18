@@ -1,13 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-@font-face{
-	font-family: SF;
-  	src: url('fonts/SF-Pro-Display-Thin.otf') format("opentype");
-	
+
+@font-face {
+    font-family: "SFThin";
+	src: url('fonts/SF-Pro-Text-Thin.otf') format('opentype');
+    src: url('fonts/SFProText-Thin.eot');
+    src: url('fonts/SFProText-Thin.eot?#iefix') format('embedded-opentype'),
+        url('fonts/SFProText-Thin.woff2') format('woff2'),
+        url('fonts/SFProText-Thin.woff') format('woff'),
+        url('fonts/SFProText-Thin.ttf') format('truetype'),
+		url('fonts/SF-Pro-Text-Thin.otf') format('opentype'),
+        url('fonts/SFProText-Thin.svg#SFProText-Thin') format('svg');
 }
-@font-face{
-	font-family: SFThin;
-  	src: url('fonts/SF-Pro-Text-Thin.otf') format("opentype");
-	
+
+@font-face {
+    font-family: "SF";
+    src: url('fonts/SFProDisplay-Thin.eot');
+    src: url('fonts/SFProDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+        url('fonts/SFProDisplay-Thin.woff2') format('woff2'),
+        url('fonts/SFProDisplay-Thin.woff') format('woff'),
+        url('fonts/SFProDisplay-Thin.ttf') format('truetype'),
+		url('fonts/SF-Pro-Display-Thin.otf') format('opentype'),
+        url('fonts/SFProDisplay-Thin.svg#SFProDisplay-Thin') format('svg');
 }
 
 body{padding: 10px;font-family: 'SFThin', sans-serif; margin: 0; height: 100%;  color: #3b4352;}
@@ -132,9 +145,7 @@ nav ul i{
 #sections h2{font-size: 23px; margin-bottom: 10px;}
 .section{margin: 15vh auto;}
 #about{margin-top: 5vh;}
-#about p{
-	font-size: 20px;
-}
+
 .techlist{
 	margin-bottom: 15px;
 	width: 100%;
@@ -206,6 +217,9 @@ footer{
 		grid-template-rows: auto auto;
 		justify-content: space-around;
 		align-content: space-between;
+	}
+	#about p{
+		font-size: 20px;
 	}
 	.mid1{margin: 0;}
 	.techlist{width: 30%;}
