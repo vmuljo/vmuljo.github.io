@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @font-face{
 	font-family: SF;
-  	src: url('fonts/SF-Pro.ttf');
+  	src: url('fonts/SF-Pro-Display-Light.otf');
+	
+}
+@font-face{
+	font-family: SFThin;
+  	src: url('fonts/SF-Pro-Display-Thin.otf');
 	
 }
 
@@ -115,7 +120,7 @@ nav ul i{
 	width: 30%;
 }
 
-#intro h1{font-size: 28px; font-weight: normal;}
+#intro h1{font-size: 28px; font-weight: normal; font-family: 'SFThin', sans-serif;}
 #intro h2{font-weight: normal; font-size: 15px;}
 #intro h3{font-size: 12px;}
 #name{
@@ -126,6 +131,9 @@ nav ul i{
 #sections h2{font-size: 23px; margin-bottom: 10px;}
 .section{margin: 15vh auto;}
 #about{margin-top: 5vh;}
+#about p{
+	font-size: 20px;
+}
 .techlist{
 	margin-bottom: 15px;
 	width: 100%;
