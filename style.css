@@ -1,24 +1,4 @@
-@font-face {
-    font-family: 'SFText';
-	src: url('fonts/SFProText-Light.eot');
-    src: url('fonts/SFProText-Light.eot?#iefix') format('embedded-opentype'),
-        url('fonts/SFProText-Light.woff2') format('woff2'),
-        url('fonts/SFProText-Light.woff') format('woff'),
-        url('fonts/SFProText-Light.ttf') format('truetype'),
-		url('fonts/SF-Pro-Text-Light.otf') format('opentype'),
-        url('fonts/SFProText-Light.svg#SFProText-Light') format('svg');
-}
 
-@font-face {
-    font-family: 'SF';
-	src: url('fonts/SFProDisplay-Light.eot');
-    src: url('fonts/SFProDisplay-Light.eot?#iefix') format('embedded-opentype'),
-        url('fonts/SFProDisplay-Light.woff2') format('woff2'),
-        url('fonts/SFProDisplay-Light.woff') format('woff'),
-        url('fonts/SFProDisplay-Light.ttf') format('truetype'),
-		url('fonts/SF-Pro-Display-Light.otf') format('opentype'),
-        url('fonts/SFProDisplay-Light.svg#SFProDisplay-Light') format('svg');
-}
 
 body{padding: 10px;font-family: 'SFText', sans-serif; margin: 0; height: 100%;  color: #3b4352;}
 *{padding: 0; box-sizing: border-box; margin: 0}
