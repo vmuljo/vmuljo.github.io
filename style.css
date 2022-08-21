@@ -111,6 +111,10 @@ nav ul i{
 	width: 30%;
 }
 
+.disable-link {
+	pointer-events: none;
+}
+
 #intro h1{font-size: 28px; font-weight: normal; font-family: 'Manrope', sans-serif;}
 #intro h2{font-weight: normal; font-size: 14px;}
 #intro h3{font-size: 12px;}
