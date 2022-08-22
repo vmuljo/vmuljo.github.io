@@ -11,6 +11,7 @@ const adminclose = document.querySelector("#adminclose");
 const list = document.querySelector(".namesList");
 const admin = document.querySelector(".admin-enable");
 var contents = document.querySelector(".contents");
+
 var queue = [];
 var queueList = document.querySelectorAll(".namesList li");
 var queueArray = Array.from(queueList); 
@@ -20,11 +21,18 @@ var lockToggle=false;
 class Person{
     name;
     number;
-    status = false;
+    // queueSpot;
+    status;
 
-    constructor(name_, number_){
+    // constructor(name_, number_){
+    //     this.name = name_;
+    //     this.number = number_;
+    // }
+
+    constructor(name_, number_, status_){
         this.name = name_;
         this.number = number_;
+        this.status = status_;
     }
 
     getPersonInfo(){
@@ -35,46 +43,66 @@ class Person{
 
         return info;
     }
+
+    addPersonToDOM(){
+        // Creates DOM elements
+        const li = document.createElement('li');
+        const deleteSpan =  document.createElement('span');
+        const readySpan = document.createElement('span');
+        const div_li = document.createElement('div');
+
+        // Adds classes and styling to each element
+        div_li.classList.add('queue-entry');
+        deleteSpan.classList.add('guest-option', 'remove');
+        readySpan.classList.add('guest-option', 'ready');
+        li.classList.add('guest-name');
+        li.style.cursor = "default";
+        // If currently in admin mode when adding to queue:
+        if(document.querySelector('.contents').classList.contains('admin')){
+            deleteSpan.classList.add('admin-option');
+            readySpan.classList.add('admin-option');
+            deleteSpan.classList.remove('guest-option');
+            readySpan.classList.remove('guest-option');
+            li.style.cursor = "pointer";
+        }
+
+        // Sets innerhtml of dom elements
+        deleteSpan.innerHTML = "&#10006;";
+        readySpan.innerHTML = "&#10004;";
+        li.innerHTML = this.name;
+
+        // Sets the DOM structure and puts in HTML code
+        div_li.appendChild(readySpan);
+        div_li.appendChild(li);
+        div_li.appendChild(deleteSpan);
+        list.appendChild(div_li);
+    }
 }
 
 function saveQueue(){
     localStorage.queue = JSON.stringify(queue);
 }
-saveQueue();
 
-function loadQueue(){
-    if(localStorage.queue != '[]'){
-        queue = JSON.parse(localStorage.queue);
+console.log(localStorage.queue);
+;function loadQueue(){
+    if(localStorage.queue != '[]' && localStorage.queue != undefined){
+        var oldQueue = JSON.parse(localStorage.queue);
         // Creates DOM elements
         if(list.classList.contains('empty')){
             list.classList.remove('empty');
             list.innerHTML = "";
         }
-        queue.forEach(queueitem => {
-            const li = document.createElement('li');
-            const deleteSpan =  document.createElement('span');
-            const readySpan = document.createElement('span');
-            const div_li = document.createElement('div');
-
-            // Adds classes and styling to each element
-            div_li.classList.add('queue-entry');
-            deleteSpan.classList.add('guest-option', 'remove');
-            readySpan.classList.add('guest-option', 'ready');
-            li.classList.add('guest-name');
-            li.style.cursor = "default";
-
-            // Sets innerhtml of dom elements
-            deleteSpan.innerHTML = "&#10006;";
-            readySpan.innerHTML = "&#10004;";
-            li.innerHTML = queueitem.name;
-
-            // Sets the DOM structure and puts in HTML code
-            div_li.appendChild(readySpan);
-            div_li.appendChild(li);
-            div_li.appendChild(deleteSpan);
-            list.appendChild(div_li);
+        // console.log(oldQueue);
+        oldQueue.forEach(function(queueitem){
+            // console.log(queueitem);
+            // queueitem.addPersonToDOM();
+            const p = new Person(queueitem.name, queueitem.number, queueitem.status);
+            queue.push(p);
+            p.addPersonToDOM();
+            // console.log(queue);
         })
-        
+        saveQueue();
+        localStorage.clear();
     }
 }
 loadQueue();
@@ -167,6 +195,8 @@ function viewGuest(){
             guest.onclick = function(){
                 clickedGuest = this;
                 clickedGuestIndex = i;
+                // console.log(this.parentNode);
+                console.log(i);
                 name.innerHTML = queue.at(i).name;
                 spot.innerHTML = i+1;
                 phone.innerHTML = queue[i].number;
@@ -182,20 +212,22 @@ function viewGuest(){
 }
 viewGuest();
 
-// Removes queue entry on click when in admin mode
 function removeQueueEntry(){
     var guestList = document.getElementsByClassName('remove');
     Array.from(guestList).forEach((guest, i) => {
         guest.onclick = function(){
-            // console.log(i);
-            // console.log(guestList.length);
             this.parentNode.remove();
+            console.log(i);
             if(guestList.length == 0) makeEmpty();
+            console.log(queue);
             queue.splice(i, 1);
+            removeQueueEntry(); //recursion for updated list and index values after removal
+            queueEntryAttended();
+            viewGuest();
             saveQueue();
         }
-    })
-    
+    });
+
 }
 removeQueueEntry();
 
@@ -211,7 +243,7 @@ function queueEntryAttended(){
         }
     })
 }
-queueEntryAttended()
+queueEntryAttended();
 
 // Function to add text to empty queue and set list as empty
 function makeEmpty(){
@@ -251,41 +283,11 @@ document.querySelector("#submitbtn").onclick = function(){
             list.innerHTML = "";
         }
         // Add a new Person object to a queue
-        const person = new Person(name, num);
+        const person = new Person(name, num, false);
         queue.push(person);
-        var latestPushedName = queue.at(-1).name;
-
-        // Creates DOM elements
-        const li = document.createElement('li');
-        const deleteSpan =  document.createElement('span');
-        const readySpan = document.createElement('span');
-        const div_li = document.createElement('div');
-
-        // Adds classes and styling to each element
-        div_li.classList.add('queue-entry');
-        deleteSpan.classList.add('guest-option', 'remove');
-        readySpan.classList.add('guest-option', 'ready');
-        li.classList.add('guest-name');
-        li.style.cursor = "default";
-        // If currently in admin mode when adding to queue:
-        if(document.querySelector('.contents').classList.contains('admin')){
-            deleteSpan.classList.add('admin-option');
-            readySpan.classList.add('admin-option');
-            deleteSpan.classList.remove('guest-option');
-            readySpan.classList.remove('guest-option');
-            li.style.cursor = "pointer";
-        }
-
-        // Sets innerhtml of dom elements
-        deleteSpan.innerHTML = "&#10006;";
-        readySpan.innerHTML = "&#10004;";
-        li.innerHTML = latestPushedName;
-
-        // Sets the DOM structure and puts in HTML code
-        div_li.appendChild(readySpan);
-        div_li.appendChild(li);
-        div_li.appendChild(deleteSpan);
-        list.appendChild(div_li);
+        // person.queueSpot = queue.indexOf(person);
+        console.log(queue);
+        person.addPersonToDOM();
 
         queueList = document.querySelectorAll(".namesList li");
         document.querySelector("#name").value = "";
@@ -302,15 +304,10 @@ document.querySelector('#btn-remove').onclick = () => {
     var cleared = false;
     console.log(queueList);
     if(queueList.length > 0 && !cleared){
-        const first = queueArray.shift();
-        const firstOut = queue.shift();
-        console.log(list);
+        queue.splice(0, 1);
         list.removeChild(list.children[0]);
-        console.log(queueArray);
         queueList = document.querySelectorAll(".namesList li");
-        if(queueList.length == 0){
-            makeEmpty();
-        }
+        if(queueList.length == 0) makeEmpty();
     }
     else{
         makeEmpty();
@@ -318,8 +315,9 @@ document.querySelector('#btn-remove').onclick = () => {
         
         var cleared = true;
     }
+    queueEntryAttended();
+    viewGuest();
     saveQueue();
-    console.log(queueList.length);
 }
 
 // Admin button: Clears the queue
@@ -330,6 +328,7 @@ document.querySelector('#btn-clear').onclick = () => {
         queue = [];
         makeEmpty();
         localStorage.clear();
+        console.log(queue);
         return;
     }
     console.log("No one is in the Queue!");
@@ -356,6 +355,8 @@ document.querySelector('#remove-guest').onclick = function(){
     if(guestList.length == 0) makeEmpty();
     
     queue.splice(clickedGuestIndex, 1);
+    queueEntryAttended()
+    viewGuest();
     saveQueue();
 }
 
@@ -396,16 +397,24 @@ admin.onclick = ()=>{
     contents = document.querySelector('.contents')
 
     if(!contents.classList.contains("admin")){
+        
         modalToggle(adminModal, adminModalBlock);
-        document.querySelector('#adminsubmit').onclick = () => {
+        document.querySelector('#adminsubmit').onclick = function(){
+            var valid = true;
             var pin = document.querySelector('#pin').value.trim();
-            if(pin == "1234"){
-                adminToggle();
-                modalToggle(adminModal, adminModalBlock);
+            
+            if(pin != "1234"){
+                document.querySelector('#admin-error').innerHTML = "&#9888; Invalid PIN";
+                valid = false;
             }
             else{
-                document.querySelector('#admin-error').innerHTML = "&#9888; Invalid PIN";
-                
+                document.querySelector('#admin-error').innerHTML = "";
+                valid = true;
+            }
+            
+            if(valid){
+                adminToggle();
+                modalToggle(adminModal, adminModalBlock);
             }
             document.querySelector('#pin').value = "";
         }
