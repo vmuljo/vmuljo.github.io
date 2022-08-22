@@ -84,7 +84,7 @@ function saveQueue(){
 }
 
 console.log(localStorage.queue);
-;function loadQueue(){
+function loadQueue(){
     if(localStorage.queue != '[]' && localStorage.queue != undefined){
         var oldQueue = JSON.parse(localStorage.queue);
         // Creates DOM elements
@@ -102,7 +102,7 @@ console.log(localStorage.queue);
             // console.log(queue);
         })
         saveQueue();
-        localStorage.clear();
+        // localStorage.clear();
     }
 }
 loadQueue();
@@ -112,6 +112,7 @@ function saveLockStatus(){
     localStorage.lock = lockToggle;
 }
 // Checks the lock status in local storage
+console.log(localStorage.lock);
 function checkLock(){
     console.log(localStorage.lock);
     if(localStorage.lock == 'true'){
@@ -119,7 +120,6 @@ function checkLock(){
         btn.disabled = true;
         btn.classList.add('disabled-button','noHover');
         queuelock.innerHTML = "Unlock Queue";
-        return;
     }
 }
 checkLock();
@@ -142,6 +142,7 @@ function adminToggle(){
             btn.classList.remove('disabled-button', 'noHover');
         }
         viewGuest();
+        saveQueue();
     }
     else{
         const adminoptions = document.querySelectorAll('.admin-option');
@@ -159,6 +160,8 @@ function adminToggle(){
             btn.disabled = false;
             btn.classList.remove('disabled-button','noHover');
         }
+
+        saveQueue();
     }
 }
 
@@ -297,6 +300,7 @@ document.querySelector("#submitbtn").onclick = function(){
         viewGuest();
         queueEntryAttended();
         saveQueue();
+        saveLockStatus();
     }
 }
 // Admin button: Removes first person from queue
@@ -339,6 +343,7 @@ document.querySelector('#btn-clear').onclick = () => {
 queuelock.onclick = () => {
     lockToggle = !lockToggle;
     saveLockStatus();
+    console.log(localStorage.lock);
     if(lockToggle){
         queuelock.innerHTML = "Unlock Queue";
         return;
