@@ -300,7 +300,6 @@ document.querySelector("#submitbtn").onclick = function(){
         viewGuest();
         queueEntryAttended();
         saveQueue();
-        saveLockStatus();
     }
 }
 // Admin button: Removes first person from queue
@@ -381,21 +380,6 @@ infoclose.onclick = () => {
 adminclose.onclick = () => {
     modalToggle(adminModal, adminModalBlock);
 }
-// When anywhere outside of the modal window is clicked, close the modal
-window.onclick = (e) => {
-    if(e.target == modal){
-        modalToggle(modal, queueModalBlock);
-        document.querySelector("#name-error").innerHTML ="";
-        document.querySelector("#num-error").innerHTML ="";
-        return;
-    }
-    if(e.target == infoModal){
-        modalToggle(infoModal, infoModalBlock);
-    }
-    if(e.target == adminModal){
-        modalToggle(adminModal, adminModalBlock);
-    }
-}
 
 // When admin (tool symbol) button is clicked, close modal
 admin.onclick = ()=>{
@@ -429,3 +413,19 @@ admin.onclick = ()=>{
     
     
 }
+// When anywhere outside of the modal window is clicked, close the modal
+window.onclick = (e) => {
+    if(e.target == modal){
+        modalToggle(modal, queueModalBlock);
+        document.querySelector("#name-error").innerHTML ="";
+        document.querySelector("#num-error").innerHTML ="";
+        return;
+    }
+    if(e.target == infoModal){
+        modalToggle(infoModal, infoModalBlock);
+    }
+    if(e.target == adminModal){
+        modalToggle(adminModal, adminModalBlock);
+    }
+}
+
