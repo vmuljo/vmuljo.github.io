@@ -1,6 +1,25 @@
 var themebtn = document.querySelector('.thememode');
 var body = document.querySelector('body');
 //color: #f05e31;
+function themeColorHover(){
+    if(!body.classList.contains('dark')){
+        document.getElementById('themeicon').onmouseenter = function(){
+            document.querySelector('.thememode i').style.color = '#315bf0';
+        }
+        document.getElementById('themeicon').onmouseleave = function(){
+            document.querySelector('.thememode i').style.color = '#3b4352';
+        }
+    }
+    if(body.classList.contains('dark')){
+        document.getElementById('themeicon').onmouseenter = function(){
+            document.querySelector('.thememode i').style.color = '#f05e31';
+        }
+        document.getElementById('themeicon').onmouseleave = function(){
+            document.querySelector('.thememode i').style.color = '#f2f3f7';
+        }
+    }
+}
+themeColorHover();
 
 themebtn.onclick = function(){
     if(!body.classList.contains('dark')){
@@ -29,19 +48,18 @@ themebtn.onclick = function(){
             element.style.color = '#f2f3f7';
         })
         document.querySelector('.thememode').style.boxShadow = '#0px 0px 0px 1.5px #f2f3f7';
-        document.querySelector('.thememode i').style.color = '#f05e31';
+        document.querySelector('.thememode i').style.color = '#f2f3f7';
 
         document.querySelector('.thememode i').classList.add('fa-sun');
         document.querySelector('.thememode i').classList.remove('fa-moon');
 
-        document.querySelector
+        themeColorHover();
         return;
         // document.querySelector('.fa-solid').classList.add('fa-sun');
     }
     else{
         document.querySelector('meta[name="theme-color"]').setAttribute('content',  'white');
-        body.classList.remove('dark');
-        body.classList.add('light');
+        body.classList.toggle('dark');
         document.querySelector('body').style.backgroundColor = 'white';
         document.querySelector('body').style.color = '#3b4352';
         document.querySelector('.navbar').style.backgroundColor = 'white';
@@ -62,10 +80,12 @@ themebtn.onclick = function(){
         document.querySelectorAll('#nav a').forEach(element => {
             element.style.color = '#3b4352';
         })
-        document.querySelector('.thememode i').style.color = '#315bf0';
+        document.querySelector('.thememode i').style.color = '#3b4352';
 
         document.querySelector('.thememode i').classList.add('fa-moon');
         document.querySelector('.thememode i').classList.remove('fa-sun');
+
+        themeColorHover()
         return;
         // document.querySelector('.fa-solid').classList.add('fa-sun');
     }
