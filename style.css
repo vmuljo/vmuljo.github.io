@@ -1,16 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400&display=swap');
 
+/* LIGHT MODE SCROLL BAR CSS */
+.light::-webkit-scrollbar {
+	width: 18px;
+}
+
+/* Track */
+.light::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 14px 14px transparent;
+    border: solid 5px transparent;
+}
+
+/* Handle */
+.light::-webkit-scrollbar-thumb {
+	width: 5px;
+	/* background-color: #315bf0; */
+	box-shadow: inset 0 0 14px 14px rgba(59, 67, 82, 0.6);
+    border: solid 5px transparent;
+	border-radius: 10px;
+	/* border: solid 10px transparent; */
+	
+}
+
+/* Handle on hover */
+.light::-webkit-scrollbar-thumb:hover {
+	box-shadow: inset 0 0 14px 14px rgba(59, 67, 82, 0.9);
+    border: solid 5px transparent;
+}
+
+/* DARK MODE SCROLL BAR CSS */
+.dark::-webkit-scrollbar {
+	width: 18px;
+}
+
+/* Track */
+.dark::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 14px 14px transparent;
+    border: solid 5px transparent;
+}
+
+/* Handle */
+.dark::-webkit-scrollbar-thumb {
+	width: 5px;
+	/* background-color: #315bf0; */
+	box-shadow: inset 0 0 14px 14px rgba(242, 243, 247, 0.6);
+    border: solid 5px transparent;
+	border-radius: 10px;
+	/* border: solid 10px transparent; */
+	
+}
+
+/* Handle on hover */
+.dark::-webkit-scrollbar-thumb:hover {
+	box-shadow: inset 0 0 14px 14px rgba(242, 243, 247, 0.9);
+    border: solid 5px transparent;
+}
+
+/* BODY CSS */
+
 body{padding: 10px;font-family: 'Manrope', sans-serif; margin: 0; height: 100%;  color: #3b4352; }
 *{padding: 0; box-sizing: border-box; margin: 0}
 
 button{font-family: inherit; background-color: #f2f3f7; font-size: 1em; border: none; padding: 1vh 3vh; border-radius: 15px; cursor: pointer;}
 .navbar{
-	/* background-color: #315bf0;  */
+	background-color: white; 
 	width: 100%;
 	position: fixed;
 	top: 0;
 	right: 0;
-	left: 0;}
+	left: 0;
+	z-index: 1;}
 #nav a{text-decoration: none; color: #3b4352;}
 #nav a:hover{font-weight: bold;}
 nav{
@@ -20,11 +79,7 @@ nav{
 	justify-content: space-between;
 	align-items: center;
 	margin: 0 auto;
-	/* box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, 0.08); */
 	width: 94.3%;
-	background-color: white;
-	/* background-color: #315bf0; */
-	z-index: 1;
 }
 
 nav ul{
@@ -51,8 +106,6 @@ nav ul i{
 	display: block; 
 	padding: 3px;
 	margin: auto 0; 
-	/* border-radius: 50%; */
-	/* border: 1px solid #3b4352; */
 }
 
 #links{
@@ -68,18 +121,31 @@ nav ul i{
 	align-items: center;
 	z-index: unset;
 	margin: 0 auto;
-	/* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08); */
-	/* background-color: #315bf0; */
 }
 
 .vl{
 	border-left: 2.3px solid #3b4352;
 	width: 500px;
-	/* background-color: #f2f3f7; */
 	left: 50%;
 	top: 0;
 	margin: 0 auto;
 }
+
+.thememode{
+	border-radius: 50%;
+	height: 25px;
+	width: 25px;
+	padding-top: 1.7px;
+	cursor: pointer;
+}
+.thememode i{
+	font-size: 21px; color: #3b4352;
+	text-align: center;
+	display: block;
+	/* margin-top: 2px; */
+	padding: 0;
+}
+
 
 #container{
 	height: 100%;
@@ -104,14 +170,13 @@ nav ul i{
 .linkbutton:hover, .contact:hover{
 	font-weight: bold;
 }
-.contact{border: 2px solid #315bf0; padding: 5px; text-decoration: none; color: #3b4352; border-radius: 10px;
+#contactbtn{
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	width: 30%;
 }
 
 .disable-link {
@@ -160,7 +225,7 @@ footer{
 	right: 0;
 	left: 0;
 	bottom: 0;
-	background-color: white;
+	/* background-color: white; */
 	/* box-shadow: 0px -1px 15px 0 rgba(0, 0, 0, 0.08); */
 	padding: 10px 10px;
 }
@@ -227,7 +292,7 @@ footer{
 		right: unset;
 		list-style: none;
 		width: auto;
-		height: 300px;
+		height: 320px;
 		justify-content: space-between;
 		align-items: center;
 		z-index: 1;
