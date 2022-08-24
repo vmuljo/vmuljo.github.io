@@ -3,9 +3,8 @@ var body = document.querySelector('body');
 //color: #f05e31;
 
 themebtn.onclick = function(){
-    if(body.classList.contains('light')){
-        body.classList.remove('light');
-        body.classList.add('dark');
+    if(!body.classList.contains('dark')){
+        body.classList.toggle('dark');
         document.querySelector('body').style.backgroundColor = '#3b4352';
         document.querySelector('body').style.color = '#f2f3f7';
         document.querySelector('.navbar').style.backgroundColor = '#3b4352';
@@ -38,7 +37,7 @@ themebtn.onclick = function(){
         return;
         // document.querySelector('.fa-solid').classList.add('fa-sun');
     }
-    if(body.classList.contains('dark')){
+    else{
         body.classList.remove('dark');
         body.classList.add('light');
         document.querySelector('body').style.backgroundColor = 'white';
