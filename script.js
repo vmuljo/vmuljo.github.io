@@ -4,6 +4,7 @@ var body = document.querySelector('body');
 
 themebtn.onclick = function(){
     if(!body.classList.contains('dark')){
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#3b4352');
         body.classList.toggle('dark');
         document.querySelector('body').style.backgroundColor = '#3b4352';
         document.querySelector('body').style.color = '#f2f3f7';
@@ -38,6 +39,7 @@ themebtn.onclick = function(){
         // document.querySelector('.fa-solid').classList.add('fa-sun');
     }
     else{
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',  'white');
         body.classList.remove('dark');
         body.classList.add('light');
         document.querySelector('body').style.backgroundColor = 'white';
