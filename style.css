@@ -108,6 +108,14 @@ nav ul i{
 	margin: auto 0; 
 }
 
+.emphasis-light{
+	color:#101d4b
+}
+
+.emphasis-dark{
+	color: #5f1e0a;
+}
+
 #links{
 	display: flex;
 	flex-direction: row;
@@ -132,14 +140,13 @@ nav ul i{
 }
 
 .thememode{
-	border-radius: 50%;
 	height: 25px;
 	width: 25px;
 	padding-top: 1.7px;
 	cursor: pointer;
 }
 .thememode i{
-	font-size: 21px; color: #3b4352;
+	font-size: 21px; color: #315bf0;
 	text-align: center;
 	display: block;
 	/* margin-top: 2px; */

@@ -29,7 +29,7 @@ themebtn.onclick = function(){
             element.style.color = '#f2f3f7';
         })
         document.querySelector('.thememode').style.boxShadow = '#0px 0px 0px 1.5px #f2f3f7';
-        document.querySelector('.thememode i').style.color = '#f2f3f7';
+        document.querySelector('.thememode i').style.color = '#f05e31';
 
         document.querySelector('.thememode i').classList.add('fa-sun');
         document.querySelector('.thememode i').classList.remove('fa-moon');
@@ -62,7 +62,7 @@ themebtn.onclick = function(){
         document.querySelectorAll('#nav a').forEach(element => {
             element.style.color = '#3b4352';
         })
-        document.querySelector('.thememode i').style.color = '#3b4352';
+        document.querySelector('.thememode i').style.color = '#315bf0';
 
         document.querySelector('.thememode i').classList.add('fa-moon');
         document.querySelector('.thememode i').classList.remove('fa-sun');
