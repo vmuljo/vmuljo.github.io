@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400&display=swap');
-
+:root{
+	--bg: white;
+	--text: #3b4352;
+	--icon: #3b4352;
+	--hover: #315bf0;
+	--emphasis: #315bf0;
+}
 /* LIGHT MODE SCROLL BAR CSS */
 .light::-webkit-scrollbar {
 	width: 18px;
@@ -58,19 +64,19 @@
 
 /* BODY CSS */
 
-body{padding: 10px;font-family: 'Manrope', sans-serif; margin: 0; height: 100%;  color: #3b4352; }
+body{padding: 10px;font-family: 'Manrope', sans-serif; margin: 0; height: 100%;  color: var(--text); background-color: var(--bg);}
 *{padding: 0; box-sizing: border-box; margin: 0}
 
 button{font-family: inherit; background-color: #f2f3f7; font-size: 1em; border: none; padding: 1vh 3vh; border-radius: 15px; cursor: pointer;}
 .navbar{
-	background-color: white; 
+	background-color: var(--bg); 
 	width: 100%;
 	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
 	z-index: 1;}
-#nav a{text-decoration: none; color: #3b4352;}
+#nav a{text-decoration: none; color: var(--text);}
 #nav a:hover{font-weight: bold;}
 nav{
 	height: 70px;
@@ -108,14 +114,6 @@ nav ul i{
 	margin: auto 0; 
 }
 
-.emphasis-light{
-	color:#101d4b
-}
-
-.emphasis-dark{
-	color: #5f1e0a;
-}
-
 #links{
 	display: flex;
 	flex-direction: row;
@@ -132,7 +130,7 @@ nav ul i{
 }
 
 .vl{
-	border-left: 2.3px solid #3b4352;
+	border-left: 2.3px solid var(--text);
 	width: 500px;
 	left: 50%;
 	top: 0;
@@ -146,11 +144,15 @@ nav ul i{
 	cursor: pointer;
 }
 .thememode i{
-	font-size: 21px; color: #3b4352;
+	font-size: 21px; color: var(--icon);
 	text-align: center;
 	display: block;
 	/* margin-top: 2px; */
 	padding: 0;
+}
+
+.thememode i:hover{
+	color: var(--hover);
 }
 
 
@@ -169,7 +171,7 @@ nav ul i{
 	/* font-family: 'SF', sans-serif; */
 }
 #intro *{margin: 2% 0;}
-.linkbutton{width: 30%; border: 2px solid #315bf0; padding: 5px; text-decoration: none; color: #3b4352; border-radius: 10px;}
+.linkbutton{width: 30%; border: 2px solid var(--emphasis); padding: 5px; text-decoration: none; color: var(--text); border-radius: 10px;}
 #app{
 	width: 40%;
 	text-align: center;
@@ -194,8 +196,7 @@ nav ul i{
 #intro h2{font-weight: normal; font-size: 14px;}
 #intro h3{font-size: 12px;}
 #name{
-	color: #315bf0; 
-	/* text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.1); */
+	color: var(--emphasis); 
 }
 
 #sections h2{font-size: 23px; margin-bottom: 10px;}
@@ -223,7 +224,10 @@ nav ul i{
 
 .mid{margin: 15px 0;}
 
-.fa-brands{font-size: 21px; color: #3b4352;}
+.fa-brands{font-size: 21px; color: var(--icon);}
+.fa-brands:hover{
+	color: var(--hover);
+}
 
 #contact p{text-align: center; margin: 0 auto 5px;}
 footer{
@@ -237,7 +241,7 @@ footer{
 	padding: 10px 10px;
 }
 
-.socials{color: #3b4352; margin: 5px;}
+.socials{margin: 5px;}
 
 #footer-text{font-size: 12px; text-align: center; margin: 10px auto;}
 @media (min-width: 370px){
@@ -305,9 +309,9 @@ footer{
 		z-index: 1;
 	}
 	.vl{
-		border-left: 2.3px solid #3b4352;
+		border-left: 2.3px solid var(--text);
 		height: 500px;
-		background-color: #f2f3f7;
+		/* background-color: #f2f3f7; */
 		left: 50%;
 		top: 0;
 	}
