@@ -9,6 +9,7 @@
   	<meta name="author" content="Victor Muljo">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
@@ -56,36 +57,49 @@
 	
 	<div id="intro">
 		<h1>Hi, I'm <strong id="name">Victor Muljo</strong>.</h1>
-		<h2>I'm an aspiring software engineer based in <strong>Loss Angeles</strong>. I have interests in <strong>frontend development</strong>, <strong>mobile app development</strong>, and <strong>desktop software development</strong>, along with a strong passion for digital design in tech.</h2>
-		<a href="VictorMuljo_Resume1.pdf" class="linkbutton" target="s_blank">Resume</a>
+		<h2>I'm an aspiring software engineer based in <strong>Los Angeles</strong>. I have interests in <strong>frontend development</strong>, <strong>mobile app development</strong>, and <strong>fullstack development</strong>, along with a strong passion for digital design in tech.</h2>
+		<a href="VictorMuljo_Resume.pdf" class="linkbutton" target="s_blank">Resume</a>
 	</div>
 
 	<div id="sections">
 		<div id="about" class="section">
 			<h2>// about-me </h2>
-			<p>I am currently a fifth-year <strong>Electrical and Computer Engineering</strong> major at <strong>University of Southern California</strong>. After graduation, I hope to join a company with a collaborative and innovation-centered culture as a frontend, fullstack, or mobile development engineer.</p>
+			<p>I am an upcoming <strong>Electrical and Computer Engineering</strong> graduate at <strong>University of Southern California</strong>. After graduation, I hope to join a company with a collaborative and innovation-centered culture as a frontend, fullstack, or mobile development engineer.</p>
 			<p class="mid">Here are some technologies I work with: </p>
 			
 			<div class="techlist">
-				<div>
-					<ul>
-						<li>C++</li>
-						<li>Python</li>
-					</ul>
-				</div>
+				
 				<div>
 					<ul>
 						<li>JavaScript</li>
 						<li>HTML & CSS</li>
 					</ul>
 				</div>
+				<div>
+					<ul>
+						<li>React</li>
+						<li>Laravel</li>
+					</ul>
+				</div>
+				<div>
+					<ul>
+						<li>C++</li>
+						<li>Python</li>
+					</ul>
+				</div>
 			</div>
 			
-			<p>Outside of school and technical work, I love going to the gym and going on walks (given temperatures less than 75&#8457;) to release stress and let my mind refresh for a while. I also love participating in my cultural and social club events to interact with new people. Music-wise, I love to listening to Rap, RnB/KRnB, and really any acoustic version of a song. Sometimes even just straight up acoustic sounds! I do love my calm and peace. I also enjoy video games from time to time.</p>
+			<p>Outside of school and technical work, I love going to the gym and going on walks (given temperatures less than 75&#8457;) to release stress and let my mind refresh for a while. I also love participating in my cultural and social club events to interact with new people. Music-wise, I love to listening to Rap, RnB/KRnB, and really any acoustic version of a song. Sometimes even just straight up acoustic sounds! I do love my calm and peace.</p>
 		</div> 
 		<div id="projects" class="section">
 			<h2>// software-projects</h2>
 			<div id="project">
+				<div class="proj">
+					<h3>Residency Database App for Keck Hospital of USC</h3>
+					<p class="desc">Language/Frameworks: Laravel, Bootstrap, JavaScript, HTML, CSS</p>
+					<!-- <a href="https://residency-database-app.herokuapp.com/" target="_blank"><i class="fa-brands fa-github"></i></a> -->
+					<a href="https://residency-database-app.herokuapp.com/" class="linkbutton" id="app" target="_blank">App Website</a>
+				</div>
 				<div class="proj">
 					<h3>Gym Soul: Workout Logger</h3>
 					<p class="desc">Language/Frameworks: JavaScript, PHP, MySQL, HTML, CSS, Bootstrap</p>
@@ -97,14 +111,49 @@
 					<p class="desc">Language/Frameworks: React.js, Bootstrap</p>
 					<a href="https://github.com/vmuljo/nba-spaces" target="_blank"><i class="fa-brands fa-github"></i></a>
 				</div>
-				<div class="proj">
-					<h3>Q: Queuing System</h3>
-					<p class="desc">Language/Frameworks: JavaScript, HTML, CSS</p>
-					<a href="https://github.com/vmuljo/queuing-system-app" target="_blank"><i class="fa-brands fa-github"></i></a>
-					<a href="q" class="linkbutton" id="app" target="_blank">App Website</a>
-				</div>
+				
 			</div>
 		</div> 
+		<!-- <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+			  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner">
+			  <div class="carousel-item active" data-bs-interval="10000">
+				<img src="img/keck.png" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+				  <h5>Residency Database App</h5>
+				  <p>Custom web application for Keck Hospital of USC to organize their residency database and improve their workflow with residency progress</p>
+				  <p>Frameworks: Laravel, Bootstrap</p>
+				</div>
+			  </div>
+			  <div class="carousel-item" data-bs-interval="2000">
+				<img src="..." class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+				  <h5>Gym Soul: Workout Logger</h5>
+				  <p>Some representative placeholder content for the second slide.</p>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img src="..." class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+				  <h5>Third slide label</h5>
+				  <p>Some representative placeholder content for the third slide.</p>
+				</div>
+			  </div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			  <span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			  <span class="visually-hidden">Next</span>
+			</button>
+		  </div> -->
+		
 		<div id="contact" class="section">
 			<h2>// contact-me</h2>
 			<a href="mailto:victormuljo1@gmail.com?subject=Mail%20from%20Portfolio%20Website" class="linkbutton" id="contactbtn">Lets get in touch!</a>
@@ -116,11 +165,12 @@
 
 <footer>
 	<div id="footer-text">
-		<p>Built and designed by Victor Muljo &copy; 2022</p>
+		<p>Built and designed by Victor Muljo &copy; 2023</p>
 	</div>
 </footer>
 
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 <script src="script.js"></script>
 
 </body>
