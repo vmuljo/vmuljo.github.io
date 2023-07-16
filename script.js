@@ -12,8 +12,8 @@ themebtn.onclick = function(){
 
         root.style.setProperty('--bg', '#3b4352');
         root.style.setProperty('--text', '#f2f3f7');
-        root.style.setProperty('--emphasis', '#f05e31');
-        root.style.setProperty('--hover', '#f05e31');
+        root.style.setProperty('--emphasis', '#FDB927');
+        root.style.setProperty('--hover', '#FDB927');
         root.style.setProperty('--icon', '#f2f3f7');
 
         document.querySelector('.cls-1').style.fill = '#f2f3f7';
