@@ -210,6 +210,30 @@ nav ul i{
 	flex-direction: row;
 	justify-content: space-around;
 }
+
+.experience p{
+	font-size: 0.9rem;
+	font-style: italic;
+}
+
+.experience{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.experience ul{
+	margin-bottom: 1em;
+}
+
+#dt{
+	padding: 0.3em 2em;
+}
+
+.workdesc{
+	width: 90%;
+	margin: 0 auto;
+}
 #project{
 	display: flex;
 	flex-direction: column;
@@ -266,7 +290,7 @@ footer{
 	#container{width: 70%;}
 	nav{height: 80px;}
     nav ul{
-		width: 60%;
+		width: 70%;
 	}
 	#intro *{margin: 1% 0;}
 	#intro h1{font-size: 60px; font-weight: normal;}
@@ -278,6 +302,10 @@ footer{
 		grid-template-rows: auto auto;
 		justify-content: space-around;
 		align-content: space-between;
+	}
+	.experience p{
+		font-size: 0.5rem;
+		font-style: italic;
 	}
 	#about p{
 		font-size: 20px;
@@ -292,7 +320,7 @@ footer{
 	#container{width: 70%;}
 	nav{z-index: unset;}
 	nav ul{
-		width: 30%;
+		width: 50%;
 	}
 	#links{
 		display: flex;
